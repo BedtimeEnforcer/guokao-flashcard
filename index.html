@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123d42">
+  <meta name="description" content="国考逻辑填空学习工具：词语记忆、近义辨析、语境练习与间隔复习。">
+  <title>知序 · 国考逻辑填空</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">序</span><span><strong>知序</strong><small>国考逻辑填空</small></span></div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="today" aria-current="page"><span aria-hidden="true">◫</span> 今日学习</button>
+        <button class="nav-item" data-view="cards"><span aria-hidden="true">▤</span> 词语卡片</button>
+        <button class="nav-item" data-view="compare"><span aria-hidden="true">⇄</span> 近义辨析</button>
+        <button class="nav-item" data-view="quiz"><span aria-hidden="true">✎</span> 语境练习</button>
+        <button class="nav-item" data-view="progress"><span aria-hidden="true">◷</span> 学习报告</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="eyebrow">学习数据</div><p>进度保存在当前浏览器。换设备时可导出后导入。</p><button class="text-link" id="open-settings">管理数据 ↗</button></div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar"><button class="mobile-brand" data-view="today"><span class="brand-mark">序</span><strong>知序</strong></button><span class="topbar-label">让每一次复习更有把握</span><button class="icon-button" id="top-settings" aria-label="设置和数据管理" title="设置和数据管理">⚙</button></header>
+      <main id="main">
+        <section class="view active" id="view-today" aria-labelledby="today-title">
+          <div class="hero"><div class="hero-copy"><div class="eyebrow light">YOUR STUDY DESK · 今日学习</div><h1 id="today-title">把词放回语境里，<br>记得才更牢。</h1><p>先判断，再看解析；把需要巩固的词留给下一次复习。</p><div class="hero-actions"><button class="button button-light" id="start-study">开始今日学习 <span aria-hidden="true">→</span></button><button class="button button-ghost-light" data-view="quiz">做语境练习</button></div></div><div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card art-back">语境 · 释义 · 辨析</div><div class="art-card art-front"><small>今日关键词</small><strong>恰如其分</strong><span>理解词义，更要理解分寸。</span></div></div></div>
+          <div class="section-heading"><div><div class="eyebrow">OVERVIEW</div><h2>今天的进度</h2></div><span class="muted" id="today-date"></span></div>
+          <div class="stat-grid"><div class="stat-card"><span>待复习</span><strong id="stat-due">0</strong><small>优先巩固</small></div><div class="stat-card"><span>已学习</span><strong id="stat-learned">0</strong><small>累计词语</small></div><div class="stat-card"><span>待学习</span><strong id="stat-new">0</strong><small>新词可探索</small></div><div class="stat-card"><span>题目正确率</span><strong id="stat-accuracy">—</strong><small>按已作答计算</small></div></div>
+          <div class="home-grid"><article class="feature-card"><div class="feature-icon teal">01</div><div><h3>从一张词卡开始</h3><p>先自己想词义，再揭晓来源、适用语境和易混点。</p><button class="inline-action" data-view="cards">打开词语卡 <span aria-hidden="true">↗</span></button></div></article><article class="feature-card"><div class="feature-icon sand">02</div><div><h3>练习语境判断</h3><p>用完整句子找线索，看清每个选项的取舍。</p><button class="inline-action" data-view="quiz">打开练习 <span aria-hidden="true">↗</span></button></div></article></div>
+          <div class="notice"><strong>内容原则</strong><span>词卡附词义参考链接，练习题由内容提供者编写；词义与答案仍建议结合原始来源核查。</span><button class="text-link" id="show-content-info">查看审核说明</button></div>
+        </section>
+
+        <section class="view" id="view-cards" aria-labelledby="cards-title"><div class="page-title"><div class="eyebrow">VOCABULARY</div><h1 id="cards-title">词语卡片</h1><p>先回忆，再翻开。根据自己的真实掌握程度安排下次复习。</p></div><div class="toolbar"><label class="search-field"><span aria-hidden="true">⌕</span><input id="card-search" type="search" placeholder="搜索词语、搭配或标签" autocomplete="off" aria-label="搜索词语"></label><select id="card-topic" aria-label="按知识主题筛选"><option value="all">全部主题</option></select><select id="card-kind" aria-label="按词语类别筛选"><option value="all">全部类别</option><option value="idiom">成语</option><option value="word">实词</option></select><select id="card-filter" aria-label="按学习状态筛选"><option value="due">今日待复习</option><option value="new">尚未学习</option><option value="all">全部词卡</option><option value="saved">已收藏</option></select></div><div class="card-stage"><div class="stage-meta"><span id="card-position">— / —</span><span id="card-kind-label">词语卡</span></div><div id="flashcard" class="flashcard" tabindex="0" role="button" aria-label="显示词语解析"><div id="flashcard-content"></div></div><div id="card-feedback" class="feedback-row" hidden><button class="rate-button again" data-rating="again">还不会 <small>稍后重看</small></button><button class="rate-button hard" data-rating="hard">有点模糊 <small>明天再看</small></button><button class="rate-button good" data-rating="good">记住了 <small>拉长间隔</small></button></div><div class="card-controls"><button class="button button-soft" id="prev-card">← 上一张</button><button class="button button-primary" id="reveal-card">显示解析</button><button class="button button-soft" id="next-card">下一张 →</button></div></div></section>
+
+        <section class="view" id="view-compare" aria-labelledby="compare-title"><div class="page-title"><div class="eyebrow">WORD COMPARISON</div><h1 id="compare-title">近义辨析</h1><p>看共同点，更要看决定选词的那一点差异。</p></div><div class="toolbar"><label class="search-field"><span aria-hidden="true">⌕</span><input id="compare-search" type="search" placeholder="搜索易混词" aria-label="搜索易混词"></label><span class="toolbar-count" id="compare-count"></span></div><div class="comparison-grid" id="comparison-grid"></div></section>
+
+        <section class="view" id="view-quiz" aria-labelledby="quiz-title"><div class="page-title"><div class="eyebrow">PRACTICE</div><h1 id="quiz-title">语境练习</h1><p>认真读句，先找语义和搭配线索，再决定答案。</p></div><div class="quiz-layout"><div class="quiz-card"><div class="quiz-topline"><span id="quiz-number">题目 — / —</span><span id="quiz-difficulty"></span></div><h2 id="quiz-stem"></h2><div class="choices" id="quiz-choices"></div><div class="quiz-explanation" id="quiz-explanation" hidden></div><div class="quiz-actions"><button class="button button-soft" id="quiz-skip">跳过此题</button><button class="button button-primary" id="quiz-next" hidden>下一题 →</button></div></div><aside class="quiz-side"><div class="eyebrow">练习提示</div><h3>先找上下文线索</h3><p>看对象、感情色彩和前后照应。答题后再读每个选项的解释。</p><div class="mini-stat"><span>本次答对</span><strong id="session-correct">0 / 0</strong></div></aside></div></section>
+
+        <section class="view" id="view-progress" aria-labelledby="progress-title"><div class="page-title"><div class="eyebrow">INSIGHTS</div><h1 id="progress-title">学习报告</h1><p>看看已经学过什么，下一步需要巩固什么。</p></div><div class="stat-grid report-stats"><div class="stat-card"><span>词卡总数</span><strong id="report-total">0</strong><small>正式内容</small></div><div class="stat-card"><span>已学习</span><strong id="report-learned">0</strong><small>至少看过一次</small></div><div class="stat-card"><span>已收藏</span><strong id="report-saved">0</strong><small>重点留存</small></div><div class="stat-card"><span>已完成题目</span><strong id="report-questions">0</strong><small>累计作答</small></div></div><div class="report-panel"><div class="section-heading"><div><div class="eyebrow">REVIEW</div><h2>复习节奏</h2></div></div><div class="progress-track"><span id="progress-fill"></span></div><p id="report-summary" class="muted"></p><div class="report-actions"><button class="button button-primary" data-view="cards">继续复习</button><button class="button button-soft" id="report-export">导出学习进度</button></div></div></section>
+      </main>
+      <footer class="footer"><span>知序 · 国考逻辑填空</span><span>学习辅助工具 · 请以官方考试信息为准</span></footer>
+    </div>
+  </div>
+  <nav class="mobile-nav" aria-label="手机导航"><button data-view="today" class="active"><span>◫</span>今日</button><button data-view="cards"><span>▤</span>词卡</button><button data-view="compare"><span>⇄</span>辨析</button><button data-view="quiz"><span>✎</span>练习</button><button data-view="progress"><span>◷</span>进度</button></nav>
+
+  <dialog id="settings-dialog"><form method="dialog" class="dialog-head"><div><div class="eyebrow">SETTINGS</div><h2>设置与数据</h2></div><button class="icon-button" aria-label="关闭">×</button></form><div class="dialog-body"><p>学习记录仅保存在此设备的浏览器。你可以备份进度，在另一台设备导入。</p><div class="dialog-actions"><button class="button button-primary" id="export-progress">导出进度</button><button class="button button-soft" id="import-progress">导入进度</button><input type="file" id="progress-file" accept="application/json,.json" hidden></div><hr><p>内容可通过网站部署更新，也可在本机临时导入符合规范的 JSONL 文件预览。</p><div class="dialog-actions"><button class="button button-soft" id="import-content">预览内容文件</button><input type="file" id="content-files" accept=".jsonl,.json" multiple hidden></div><hr><button class="text-link danger-link" id="reset-progress">清空本机进度</button><p class="small-note" id="data-status"></p></div></dialog>
+  <dialog id="info-dialog"><form method="dialog" class="dialog-head"><div><div class="eyebrow">ABOUT CONTENT</div><h2>内容与审核</h2></div><button class="icon-button" aria-label="关闭">×</button></form><div class="dialog-body"><p>词卡附词义查询链接；辨析与题目由内容提供者编写，不是真题。网站不以词典收录量推断国考出现频率。</p><p>内容包经过程序化结构检查与抽样人工审读，尚未逐条对照纸质辞书；来源链接可达也不代表释义正确。遇到争议，请以权威辞书和考试官方资料为准。</p><p><a href="data/review-notes.md" target="_blank" rel="noopener noreferrer">查看内容审核记录 ↗</a> · <a href="https://www.forestry.gov.cn/c/www/gsgg/645383.jhtml" target="_blank" rel="noopener noreferrer">查看国考考试大纲 ↗</a></p></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+
