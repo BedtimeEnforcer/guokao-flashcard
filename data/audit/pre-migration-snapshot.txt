@@ -1,8 +1,0 @@
-total 8
-drwxr-xr-x 1 Ethan 197121 0 Oct 13 01:49 .
-drwxr-xr-x 1 Ethan 197121 0 Oct 13 01:08 ..
-drwxr-xr-x 1 Ethan 197121 0 Oct 13 01:49 audit
--rw-r--r-- 1 Ethan 197121 0 Oct 13 01:05 cards.jsonl
--rw-r--r-- 1 Ethan 197121 0 Oct 13 01:05 comparisons.jsonl
--rw-r--r-- 1 Ethan 197121 0 Oct 13 01:05 questions.jsonl
-
